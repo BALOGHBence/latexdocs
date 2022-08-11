@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import pylatex as pltx
-from ldd import DeepDict
+from linkeddeepdict import LinkedDeepDict
 
-from sigmaepsilon.math.array import atleast2d
 from .utils import append_packages, append_preamble, section, float_to_str_sig
 
 
@@ -12,7 +11,7 @@ _default_geometry_options_ = {
     "rmargin": "1.5cm"
 }
 
-class TexDocument(DeepDict):
+class TexDocument(LinkedDeepDict):
     
 
     def __init__(self, *args, geometry_options=None, title=None, author=None,
@@ -192,7 +191,7 @@ class Table(TexDocument):
             assert labels is not None
             table_spec = 'c'.join(['|',] * (len(labels) + 1))
         self._table_spec = table_spec
-        self._data = atleast2d(data)
+        self._data = data
         self._labels = labels
         self._hline = hline
         self._content = [None]
@@ -221,7 +220,7 @@ class TableX(TexDocument):
             assert labels is not None
             table_spec = r'X'.join(['|',] * (len(labels)+1))
         self._table_spec = table_spec
-        self._data = atleast2d(data)
+        self._data = data
         self._labels = labels
         self._hline = hline
         self._content = [None]

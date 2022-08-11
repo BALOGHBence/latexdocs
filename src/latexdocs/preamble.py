@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from pylatex import (NoEscape, Package, Command)
-from ldd import DeepDict
+from linkeddeepdict import LinkedDeepDict
 
 
-__default__packages__ = DeepDict()
+__default__packages__ = LinkedDeepDict()
 
 # Tools related to displaying math.
 __default__packages__['amsmath']
