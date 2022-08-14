@@ -1,0 +1,56 @@
+
+
+Examples using ``latexdocs.Document``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Cookbook">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_0_cookbook_thumb.png
+    :alt: Cookbook
+
+  :ref:`sphx_glr_auto_examples_plot_0_cookbook.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cookbook</div>
+    </div>
+
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_plot_0_cookbook.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Basic Example with pylatex and latexdocs">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_basic_example_thumb.png
+    :alt: Basic Example
+
+  :ref:`sphx_glr_auto_examples_plot_1_basic_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Basic Example</div>
+    </div>
+
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_plot_1_basic_example.py`
+
+.. raw:: html
+
+    </div>
+
