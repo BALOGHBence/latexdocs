@@ -1,5 +1,4 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dewloosh/latexdocs/main?labpath=examples%2Flpp.ipynb?urlpath=lab)
-[![CircleCI](https://circleci.com/gh/dewloosh/latexdocs.svg?style=shield)](https://circleci.com/gh/dewloosh/latexdocs) 
 [![Documentation Status](https://readthedocs.org/projects/latexdocs/badge/?version=latest)](https://latexdocs.readthedocs.io/en/latest/?badge=latest) 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI](https://badge.fury.io/py/latexdocs.svg)](https://pypi.org/project/latexdocs) 
