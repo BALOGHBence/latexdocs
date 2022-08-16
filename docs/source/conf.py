@@ -426,13 +426,14 @@ sphinx_gallery_conf = {
     #           },
     'show_memory': True,
     'promote_jupyter_magic': False,
-    #'junit': os.path.join('latexdocs', 'junit-results.xml'),
+    'junit': os.path.join('latexdocs', 'junit-results.xml'),
     # capture raw HTML or, if not present, __repr__ of last expression in
     # each code block
     'capture_repr': ('_repr_html_', '__repr__'),
     'matplotlib_animations': True,
     'image_srcset': ["2x"],
     'nested_sections': False,
+    'run_stale_examples': False,
 }
 
 # Remove matplotlib agg warnings from generated doc when using plt.show
