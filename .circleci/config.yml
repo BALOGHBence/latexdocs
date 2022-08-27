@@ -37,6 +37,8 @@ jobs:
       - run:
           command: pip install -e .
       - run:
+          command : apt-get install texlive-full
+      - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: python -m pytest
@@ -68,6 +70,8 @@ jobs:
           pip-dependency-file: requirements-dev.txt
       - run:
           command: pip install -e .
+      - run:
+          command : apt-get install texlive-full
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
