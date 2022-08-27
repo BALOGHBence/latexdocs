@@ -38,7 +38,7 @@ jobs:
           command: pip install -e .
       - run:
           name: Install Texlive
-          command : sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+          command : sudo apt update && sudo apt install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
