@@ -33,16 +33,20 @@ jobs:
           # pip-dependency-file: requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - python/install-packages:
           pkg-manager: pip
-          pip-dependency-file: requirements-dev.txt
+          pip-dependency-file: test-requirements.txt
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: dev-requirements.txt  
       - run:
+          name: Install package in development mode
           command: pip install -e .
       - run:
-          name: Install Texlive
+          name: Install LaTeX
           command : sudo apt update && sudo apt install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
-      #- run:
-          #name: Run tests
+      - run:
+          name: Run tests
           # This assumes pytest is installed via the install-package step above
-          #command: python -m pytest
+          command: python -m pytest
   
   test310:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     # These next lines defines a docker executors: https://circleci.com/docs/2.0/executor-types/
