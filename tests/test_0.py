@@ -62,7 +62,7 @@ class TestBasic(unittest.TestCase):
         doc['Another section']['An image'].append(img)
         #doc['Another section']['An image']['image:img1'] = img"""
 
-        doc.build().generate_pdf('basic_example', clean_tex=False, compiler='pdfLaTeX')
+        doc.build().generate_pdf('basic_example', clean_tex=True, compiler='pdflatex')
         
                             
 if __name__ == "__main__":
