@@ -57,9 +57,9 @@ class TestMain(unittest.TestCase):
         #doc['Another section']['Beautiful graphs']['figure:fig1'] = fig
         doc['Another section']['Beautiful graphs'].append(fig)
 
-        img = Image(filename=image_filename, position='h!', 
+        """img = Image(filename=image_filename, position='h!', 
                     caption='A simple structure.', width='350px')
-        doc['Another section']['An image'].append(img)
+        doc['Another section']['An image'].append(img)"""
         #doc['Another section']['An image']['image:img1'] = img
 
         doc.build().generate_pdf('basic_example', clean_tex=True, compiler='pdflatex')

@@ -23,7 +23,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     
-    working_directory: ~/.
+    working_directory: ~/latexdocs
     
     steps:
       - checkout
@@ -62,7 +62,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     
-    working_directory: ~/project
+    working_directory: ~/latexdocs
     
     steps:
       - checkout
@@ -98,7 +98,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     
-    working_directory: ~/project
+    working_directory: ~/latexdocs
     
     steps:
       - checkout
