@@ -23,7 +23,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     
-    working_directory: ~/latexdocs
+    working_directory: ~/.
     
     steps:
       - checkout
