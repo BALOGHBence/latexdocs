@@ -8,7 +8,7 @@
 > **Warning**
 > This package is under active development and in an **alpha stage**. Come back later, or star the repo to make sure you don’t miss the first stable release!
 
-latexdocs is a Python library with the goal of making the generation of LaTeX documents as easy as possible. It builds on [PyLaTeX](https://github.com/JelteF/PyLaTeX), but offers a different approach to structure your document or to write custom extensions.
+latexdocs is a Python library with the goal of making the generation of LaTeX documents as easy as possible. It builds on [PyLaTeX](https://github.com/JelteF/PyLaTeX), but offers a different approach to structuring your document or writing custom extensions.
 
 ## **Documentation**
 
