@@ -7,10 +7,10 @@ from latexdocs import Document, TikZFigure, Image
 import os
 
 
-class TestBasic(unittest.TestCase):
+class TestMain(unittest.TestCase):
     
-    def test_basic(self):
-        #image_filename = 'image.png'
+    def test_pdflatex(self):
+        image_filename = '.\examples\image.png'
         
         a = np.array([[100, 10, 20]]).T
         M = np.array([[2, 3, 4],
@@ -57,10 +57,10 @@ class TestBasic(unittest.TestCase):
         #doc['Another section']['Beautiful graphs']['figure:fig1'] = fig
         doc['Another section']['Beautiful graphs'].append(fig)
 
-        """img = Image(filename=image_filename, position='h!', 
+        img = Image(filename=image_filename, position='h!', 
                     caption='A simple structure.', width='350px')
         doc['Another section']['An image'].append(img)
-        #doc['Another section']['An image']['image:img1'] = img"""
+        #doc['Another section']['An image']['image:img1'] = img
 
         doc.build().generate_pdf('basic_example', clean_tex=True, compiler='pdflatex')
         

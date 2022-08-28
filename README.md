@@ -41,6 +41,7 @@ The equivalent of the [example](https://jeltef.github.io/PyLaTeX/current/example
 
 ```python
 from latexdocs import Document, TikZFigure, Image
+from pylatex import Alignat, Matrix, Math, Tabular, Plot
 
 doc = Document(title='Basic Example', author='PyLaTeX', date=True)
 
