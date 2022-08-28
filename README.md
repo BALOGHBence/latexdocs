@@ -37,12 +37,12 @@ Installing latex on different operating systems is well described [here](https:/
 
 ## **Basic Example**
 
-The equivalent of the [example](https://jeltef.github.io/PyLaTeX/current/examples/full.html) provided for `PyLaTeX` would be the following:
+The equivalent of the [example](https://jeltef.github.io/PyLaTeX/current/examples/full.html) provided by the folks at `PyLaTeX` would be the following:
 
 ```python
 from latexdocs import Document, TikZFigure, Image
 
-doc = Document(title='Document Title', author='BB', date=True)
+doc = Document(title='Basic Example', author='PyLaTeX', date=True)
 
 doc['Some basic content'].append('Some regular text and some')
 doc['Some basic content'].append(italic('italic text. '))
