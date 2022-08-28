@@ -8,6 +8,8 @@
 > **Warning**
 > This package is under active development and in an **alpha stage**. Come back later, or star the repo to make sure you don’t miss the first stable release!
 
+latexdocs is a Python library with the goal of making the generation of LaTeX documents as easy as possible. It builds on [PyLaTeX](https://github.com/JelteF/PyLaTeX), but offers a different approach to structure your document or to write custom extensions.
+
 ## **Documentation**
 
 Click [here](https://latexdocs.readthedocs.io/en/latest/) to read the documentation.
@@ -25,11 +27,13 @@ Once the enviroment is created, activate it via typing
 >>> .\venv_name\Scripts\activate
 ```
 
-`latexdocs` can be installed (either in a virtual enviroment or globally) from PyPI using `pip` on Python >= 3.6:
+`latexdocs` can be installed (either in a virtual enviroment or globally) from PyPI using `pip` on Python >= 3.7:
 
 ```console
 >>> pip install latexdocs
 ```
+
+Installing latex on different operating systems is well described [here](https://latex-tutorial.com/installation/).
 
 ## **Basic Example**
 
@@ -85,6 +89,9 @@ doc['Another section']['An image'].append(img)
 doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdflatex')
 ```
 
+## **Contributing**
+
+Since latexdocs builds on PyLaTeX, we suggest you to contribute to that package and enjoy the result here.
 
 ## **Testing**
 
@@ -93,10 +100,6 @@ To run all tests, open up a console in the root directory of the project and typ
 ```console
 >>> python -m unittest
 ```
-
-## **Dependencies**
-
-`pylatex`, `likeddeepdict`
 
 ## **License**
 
