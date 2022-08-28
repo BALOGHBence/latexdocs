@@ -1,4 +1,6 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dewloosh/latexdocs/main?labpath=examples%2Flpp.ipynb?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dewloosh/latexdocs/main?
+labpath=examples%2Flpp.ipynb?urlpath=lab)
+[![CircleCI](https://circleci.com/gh/dewloosh/latexdocs.svg?style=shield)](https://circleci.com/gh/dewloosh/latexdocs) 
 [![Documentation Status](https://readthedocs.org/projects/latexdocs/badge/?version=latest)](https://latexdocs.readthedocs.io/en/latest/?badge=latest) 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI](https://badge.fury.io/py/latexdocs.svg)](https://pypi.org/project/latexdocs) 
@@ -32,6 +34,8 @@ Once the enviroment is created, activate it via typing
 ```
 
 ## **Basic Example**
+
+The equivalent of the [example](https://jeltef.github.io/PyLaTeX/current/examples/full.html) provided for `PyLaTeX`:
 
 ```python
 from latexdocs import Document, TikZFigure, Image
@@ -80,13 +84,13 @@ img = Image(filename=image_filename, position='h!',
 doc['Another section']['An image'].append(img)
 
 
-doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdfLaTeX')
+doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdflatex')
 ```
 
 
 ## **Testing**
 
-To run all tests, open up a console in the root directory of the project and type the following
+To run all tests, open up a console in the root directory of the project and type the following (requires the `unittest` library to be installed)
 
 ```console
 >>> python -m unittest
@@ -94,7 +98,7 @@ To run all tests, open up a console in the root directory of the project and typ
 
 ## **Dependencies**
 
-`pylatex`, `lightdeepdict`
+`pylatex`, `likeddeepdict`
 
 ## **License**
 
