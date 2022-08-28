@@ -100,4 +100,4 @@ To run all tests, open up a console in the root directory of the project and typ
 
 ## **License**
 
-This package is licensed under the MIT license.
+Copyright 2022 Bence Balogh, under [the MIT license](https://github.com/dewloosh/latexdocs/blob/master/LICENSE).
