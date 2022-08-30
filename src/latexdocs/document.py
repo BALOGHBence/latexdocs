@@ -30,7 +30,7 @@ class TexDocument(LinkedDeepDict):
     date : bool, Optional
         If True, a date is show on the title page. Default is False.
     
-    doc : pylatex.Document, Optinal
+    doc : :class:`pylatex.document.Document`, Optional
         An instance of `pylatex.Document`, if you already have one.
         Default is None.
     
@@ -42,11 +42,11 @@ class TexDocument(LinkedDeepDict):
     The implementation is not foolproof. For instance, if you ask for the date 
     to be shown but provide no title or author, you are gonna experience problems
     which I don't care about (the author). Don't be dumb.
-    
-    Example
-    -------
-    >>> from latexdocs import Document
-    >>> doc = Document(title='Title', author='Author', date=True)
+        
+    See also
+    --------
+    :class:`linkeddeepdict.LinkedDeepDict`
+    :class:`pylatex.document.Document`
     
     """
     
@@ -156,7 +156,7 @@ class TexDocument(LinkedDeepDict):
 
     def build(self, *args, **kwargs) -> pltx.Document:
         """
-        Builds and returns an instance of `pylatex.Document`.
+        Builds and returns an instance of :class:`pylatex.document.Document`.
         
         Example
         -------
@@ -198,7 +198,7 @@ class TexDocument(LinkedDeepDict):
         clean_tex : bool, Optional
             Default is False.
             
-        compiler : str, Optional.
+        compiler : str, Optional
             The compiler to use. Default is `pdflatex`. See the docs of PyLaTeX
             for all the available options.
         
@@ -325,7 +325,7 @@ class Text(TexDocument):
     txt : str
         The content.
         
-    bold : bool, Optional.
+    bold : bool, Optional
         Defailt is None.
         
     """

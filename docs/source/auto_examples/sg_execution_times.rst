@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**01:05.658** total execution time for **auto_examples** files:
+**01:06.990** total execution time for **auto_examples** files:
 
 +-------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_plot_0_cookbook.py` (``plot_0_cookbook.py``)           | 00:52.307 | 34.6 MB |
+| :ref:`sphx_glr_auto_examples_plot_1_cookbook.py` (``plot_1_cookbook.py``)           | 00:51.109 | 32.0 MB |
 +-------------------------------------------------------------------------------------+-----------+---------+
-| :ref:`sphx_glr_auto_examples_plot_1_basic_example.py` (``plot_1_basic_example.py``) | 00:13.351 | 3.5 MB  |
+| :ref:`sphx_glr_auto_examples_plot_0_basic_example.py` (``plot_0_basic_example.py``) | 00:15.881 | 4.3 MB  |
 +-------------------------------------------------------------------------------------+-----------+---------+

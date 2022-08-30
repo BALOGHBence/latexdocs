@@ -11,35 +11,35 @@ Examples Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Cookbook">
+    <div class="sphx-glr-thumbcontainer" tooltip="Basic Example with pylatex and latexdocs">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_0_cookbook_thumb.png
-    :alt: Cookbook
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_0_basic_example_thumb.png
+    :alt: Basic Example
 
-  :ref:`sphx_glr_auto_examples_plot_0_cookbook.py`
+  :ref:`sphx_glr_auto_examples_plot_0_basic_example.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Cookbook</div>
+      <div class="sphx-glr-thumbnail-title">Basic Example</div>
     </div>
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Basic Example with pylatex and latexdocs">
+    <div class="sphx-glr-thumbcontainer" tooltip="Cookbook">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_basic_example_thumb.png
-    :alt: Basic Example
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_cookbook_thumb.png
+    :alt: Cookbook
 
-  :ref:`sphx_glr_auto_examples_plot_1_basic_example.py`
+  :ref:`sphx_glr_auto_examples_plot_1_cookbook.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Basic Example</div>
+      <div class="sphx-glr-thumbnail-title">Cookbook</div>
     </div>
 
 
@@ -51,8 +51,8 @@ Examples Gallery
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_0_cookbook
-   /auto_examples/plot_1_basic_example
+   /auto_examples/plot_0_basic_example
+   /auto_examples/plot_1_cookbook
 
 
 .. only:: html

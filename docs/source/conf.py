@@ -338,14 +338,8 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
-    'scipy': ('http://docs.scipy.org/doc/scipy/reference', None),
-    'matplotlib': ('https://matplotlib.org/stable', None),
-    'mayavi': ('http://docs.enthought.com/mayavi/mayavi', None),
-    'pyvista': ('https://docs.pyvista.org/', None),
-    'sklearn': ('https://scikit-learn.org/stable', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
+    'linkeddeepdict': ('https://linkeddeepdict.readthedocs.io/en/latest/', None),
+    'pylatex': ('https://jeltef.github.io/PyLaTeX/current/', None),
 }
 
 examples_dirs = ['../../examples']
