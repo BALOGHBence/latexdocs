@@ -5,52 +5,7 @@ except ImportError:
     from collections import Iterable
 import six
 
-from pylatex import (NoEscape, Package, Command,
-                     Section, Subsection, Subsubsection)
-
-
-def append_packages(doc):
-
-    # Tools related to displaying math.
-    doc.packages.append(Package('amsmath'))
-
-    # Sympy uses the 'operatorname' command frequently to print symbols.
-    doc.packages.append(Package('amsopn'))
-
-    # To automatically break long equations into multiple lines.
-    doc.packages.append(Package('breqn'))
-
-    # For the \coloneqq command, and the defining equality symbol ':='.
-    doc.packages.append(Package('mathtools'))
-
-    # Miscallenaous
-    doc.packages.append(Package('enumitem'))  # to customize enumerations
-    doc.packages.append(Package('xcolor'))  # colors
-    doc.packages.append(Package('lmodern'))  # high quality fonts
-
-    # to insert pgf files
-    doc.packages.append(Package('pgf'))
-    doc.packages.append(Package('pgfplots'))
-    doc.packages.append(Package('pdfpages'))
-
-    # tables
-    # doc.packages.append(Package('tabular'))
-    doc.packages.append(Package('tabularx'))
-    
-    # precise positioning of figures and other floats
-    doc.packages.append(Package('float'))
-
-    return doc
-
-
-def append_preamble(doc, title=None, author=None, date=True):
-    if title is not None:
-        doc.preamble.append(Command('title', title))
-    if author is not None:
-        doc.preamble.append(Command('author', author))
-    if date:
-        doc.preamble.append(Command('date', NoEscape(r'\today')))
-    return doc
+from pylatex import (NoEscape, Section, Subsection, Subsubsection)
 
 
 def expr_to_ltx(lhs, rhs, *args, env='{equation}', sign='=',
@@ -100,13 +55,9 @@ def issequence(arg) -> bool:
 
     Examples
     --------
-    The formatter to use to print a floating point number with 4 digits:
-
-    >>> from dewloosh.core.tools import issequence
+    >>> from latexdocs.utils import issequence
     >>> issequence([1, 2])
     True
-
-    To print the actual value as a string:
 
     >>> issequence('lorem ipsum')
     False    
@@ -119,7 +70,7 @@ def issequence(arg) -> bool:
 
 def floatformatter(*args, sig: int = 6, **kwargs) -> str:
     """
-    Returns a formatter, which essantially a string temapate
+    Returns a formatter, which basically is a string template
     ready to be formatted.
 
     Parameters
@@ -129,8 +80,18 @@ def floatformatter(*args, sig: int = 6, **kwargs) -> str:
 
     Returns
     -------
-    string
+    str
         The string to be formatted.
+        
+    Example
+    --------
+    Print the value of pi as a string with 4 significant digits:
+
+    >>> from latexdocs.utils import floatformatter
+    >>> import math
+    >>> formatter = floatformatter(sig=4)
+    >>> formatter.format(math.pi)
+    '3.142'
 
     """
     return "{" + "0:.{}g".format(sig) + "}"

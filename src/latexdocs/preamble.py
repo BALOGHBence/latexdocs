@@ -33,7 +33,7 @@ __default__packages__['tabularx']
 
 def append_packages(doc, packages=None):
     
-    if packages is not None:
+    if packages is None:
         packages = __default__packages__
     
     for pkg, options in packages.items():

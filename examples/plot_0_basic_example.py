@@ -3,14 +3,13 @@ Basic Example
 =============
 
 Basic Example with ``pylatex`` and ``latexdocs``
+
 """
 
 import numpy as np
-
-from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
-    Plot, Figure, Matrix, Alignat
+from pylatex import Document, Section, Subsection, Tabular, Math, \
+    TikZ, Axis, Plot, Figure, Matrix, Alignat
 from pylatex.utils import italic
-import os
 
 image_filename = 'image.png'
 
@@ -37,9 +36,7 @@ with doc.create(Section('Some basic content')):
             table.add_row((4, 5, 6, 7))
 
 a = np.array([[100, 10, 20]]).T
-M = np.matrix([[2, 3, 4],
-                [0, 0, 1],
-                [0, 0, 2]])
+M = np.matrix([[2, 3, 4], [0, 0, 1], [0, 0, 2]])
 
 with doc.create(Section('Another section')):
     with doc.create(Subsection('Correct matrix equations')):
@@ -75,7 +72,7 @@ with doc.create(Section('Another section')):
             pic.add_image(image_filename, width='350px')
             pic.add_caption('A simple strucutre.')
 
-doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdfLaTeX')
+doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdflatex')
 
 
 # %% [markdown]
@@ -123,12 +120,16 @@ coordinates = [
 ]
 fig.append(Plot(name='estimate', coordinates=coordinates))
 #doc['Another section']['Beautiful graphs']['figure:fig1'] = fig
-doc['Another section']['Beautiful graphs'].append(fig)
+doc['Another section', 'Beautiful graphs'].append(fig)
 
 img = Image(filename=image_filename, position='h!', 
             caption='A simple structure.', width='350px')
-doc['Another section']['An image'].append(img)
+doc['Another section', 'An image'].append(img)
 #doc['Another section']['An image']['image:img1'] = img
 
+doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
 
-doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdfLaTeX')
+from pdf2image import convert_from_path
+import matplotlib.pyplot as plt
+
+plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])

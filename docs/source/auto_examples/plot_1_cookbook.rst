@@ -21,16 +21,12 @@
 Cookbook
 ========
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-18
+.. GENERATED FROM PYTHON SOURCE LINES 8-14
 
 .. code-block:: python3
 
     import numpy as np
-
-    from pylatex import Section, Subsection, Tabular, Math, TikZ, Axis, \
-        Plot, Figure, Matrix, Alignat, NoEscape
-    from pylatex.utils import italic
-    import os
+    from pylatex import Plot, NoEscape
     from latexdocs import Document, Image
 
     doc = Document(title='LaTeXDocs CookBook', author='Bence Balogh', date=True)
@@ -42,11 +38,11 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-20
+.. GENERATED FROM PYTHON SOURCE LINES 15-16
 
-## Graphs
+Graphs
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-42
+.. GENERATED FROM PYTHON SOURCE LINES 18-38
 
 .. code-block:: python3
 
@@ -77,11 +73,11 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
 
 ## ``Matplotlib`` plots
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-150
+.. GENERATED FROM PYTHON SOURCE LINES 42-146
 
 .. code-block:: python3
 
@@ -201,7 +197,7 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-222
+.. GENERATED FROM PYTHON SOURCE LINES 147-218
 
 .. code-block:: python3
 
@@ -288,11 +284,11 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-224
+.. GENERATED FROM PYTHON SOURCE LINES 219-220
 
-## Tables
+Tables
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-235
+.. GENERATED FROM PYTHON SOURCE LINES 222-231
 
 .. code-block:: python3
 
@@ -312,7 +308,7 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-257
+.. GENERATED FROM PYTHON SOURCE LINES 232-253
 
 .. code-block:: python3
 
@@ -344,7 +340,7 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 258-260
+.. GENERATED FROM PYTHON SOURCE LINES 254-256
 
 .. code-block:: python3
 
@@ -357,15 +353,15 @@ Cookbook
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 261-262
+.. GENERATED FROM PYTHON SOURCE LINES 257-258
 
-## Custom Images
+Custom Images
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-265
+.. GENERATED FROM PYTHON SOURCE LINES 260-261
 
 plt.savefig("axisvm_UZ.pdf")
 
-.. GENERATED FROM PYTHON SOURCE LINES 265-275
+.. GENERATED FROM PYTHON SOURCE LINES 261-271
 
 .. code-block:: python3
 
@@ -389,9 +385,9 @@ plt.savefig("axisvm_UZ.pdf")
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  51.109 seconds)
+   **Total running time of the script:** ( 0 minutes  52.693 seconds)
 
-**Estimated memory usage:**  32 MB
+**Estimated memory usage:**  34 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_1_cookbook.py:

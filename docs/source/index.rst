@@ -2,7 +2,7 @@
 Welcome to latexdocs's documentation!
 =====================================
 
-latexdocs is an effort to make generating LaTeX documents easier, leveraging the facility
+latexdocs is an effort to make generating LaTeX documents easier, exploiting the facility
 provided by the PyLaTeX library. 
 
 .. include:: getting_started.md
@@ -16,7 +16,6 @@ provided by the PyLaTeX library.
     auto_examples/index.rst
     api
 
-       
 Indices and tables
 ------------------
 

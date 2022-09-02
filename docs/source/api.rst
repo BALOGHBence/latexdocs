@@ -2,6 +2,8 @@
 API Reference
 =============
 
-.. automodule:: latexdocs.document
-    :members: 
+.. toctree::
+    api_documents
+    api_document_items
+    api_utils
     

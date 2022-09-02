@@ -23,7 +23,7 @@ Basic Example
 
 Basic Example with ``pylatex`` and ``latexdocs``
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-81
+.. GENERATED FROM PYTHON SOURCE LINES 8-81
 
 .. code-block:: python3
 
@@ -33,7 +33,6 @@ Basic Example with ``pylatex`` and ``latexdocs``
     from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
         Plot, Figure, Matrix, Alignat
     from pylatex.utils import italic
-    import os
 
     image_filename = 'image.png'
 
@@ -98,7 +97,7 @@ Basic Example with ``pylatex`` and ``latexdocs``
                 pic.add_image(image_filename, width='350px')
                 pic.add_caption('A simple strucutre.')
 
-    doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdfLaTeX')
+    doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdflatex')
 
 
 
@@ -112,7 +111,7 @@ Basic Example with ``pylatex`` and ``latexdocs``
 
 Now the same using ``latexdocs`` to have a little bit more control over when and what we do:
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-135
+.. GENERATED FROM PYTHON SOURCE LINES 85-140
 
 .. code-block:: python3
 
@@ -165,20 +164,36 @@ Now the same using ``latexdocs`` to have a little bit more control over when and
     #doc['Another section']['An image']['image:img1'] = img
 
 
-    doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdfLaTeX')
+    doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
+
+    from pdf2image import convert_from_path
+    import matplotlib.pyplot as plt
+
+    plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])
 
 
 
+.. image-sg:: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png
+   :alt: plot 0 basic example
+   :srcset: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png, /auto_examples/images/sphx_glr_plot_0_basic_example_001_2_0x.png 2.0x
+   :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <matplotlib.image.AxesImage object at 0x00000273EA6B9A90>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  15.881 seconds)
+   **Total running time of the script:** ( 0 minutes  12.820 seconds)
 
-**Estimated memory usage:**  4 MB
+**Estimated memory usage:**  31 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_0_basic_example.py:

@@ -69,7 +69,7 @@ extensions = [
     'sphinx.ext.mathjax',  # for math equations
     'sphinxcontrib.bibtex',  # for bibliographic references
     'sphinxcontrib.rsvgconverter',  # for SVG->PDF conversion in LaTeX output
-    #'sphinx_gallery.load_style',  # load CSS for gallery (needs SG >= 0.6)
+    'sphinx_gallery.load_style',  # load CSS for gallery (needs SG >= 0.6)
 
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
@@ -77,6 +77,14 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
 ]
+
+autodoc_default_options = {
+    #'members': 'var1, var2',
+    'member-order': 'bysource',
+    #'special-members': '__init__',
+    #'undoc-members': True,
+    #'exclude-members': '__weakref__'
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

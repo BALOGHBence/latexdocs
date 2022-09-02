@@ -3,6 +3,7 @@ Basic Example
 =============
 
 Basic Example with ``pylatex`` and ``latexdocs``
+
 """
 
 import numpy as np
@@ -10,7 +11,6 @@ import numpy as np
 from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
     Plot, Figure, Matrix, Alignat
 from pylatex.utils import italic
-import os
 
 image_filename = 'image.png'
 
@@ -75,7 +75,7 @@ with doc.create(Section('Another section')):
             pic.add_image(image_filename, width='350px')
             pic.add_caption('A simple strucutre.')
 
-doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdfLaTeX')
+doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdflatex')
 
 
 # %% [markdown]
@@ -131,4 +131,9 @@ doc['Another section']['An image'].append(img)
 #doc['Another section']['An image']['image:img1'] = img
 
 
-doc.build().generate_pdf('basic_example_latexdocs', clean_tex=False, compiler='pdfLaTeX')
+doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
+
+from pdf2image import convert_from_path
+import matplotlib.pyplot as plt
+
+plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])

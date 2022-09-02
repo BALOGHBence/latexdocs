@@ -6,17 +6,13 @@ Cookbook
 
 # %%
 import numpy as np
-
-from pylatex import Section, Subsection, Tabular, Math, TikZ, Axis, \
-    Plot, Figure, Matrix, Alignat, NoEscape
-from pylatex.utils import italic
-import os
+from pylatex import Plot, NoEscape
 from latexdocs import Document, Image
 
 doc = Document(title='LaTeXDocs CookBook', author='Bence Balogh', date=True)
 
 # %% [markdown]
-# ## Graphs
+# Graphs
 
 # %%
 from latexdocs import TikZFigure
@@ -220,7 +216,7 @@ plt.tight_layout()
 plt.show()
 
 # %% [markdown]
-# ## Tables
+# Tables
 
 # %%
 from latexdocs import Table, TableX
@@ -258,7 +254,7 @@ img = Image(filename="qrcode.png", position='h!',
 doc.build().generate_pdf('cookbook', clean_tex=False, compiler='pdfLaTeX')
 
 # %% [markdown]
-# ## Custom Images
+# Custom Images
 
 # %%
 #plt.savefig("axisvm_UZ.pdf")
