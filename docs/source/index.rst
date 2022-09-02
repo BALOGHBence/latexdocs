@@ -9,7 +9,6 @@ provided by the PyLaTeX library.
     :parser: myst_parser.sphinx_
 
 .. toctree::
-    :caption: EXAMPLES
     :maxdepth: 2
     :glob:
     :hidden:
@@ -17,7 +16,6 @@ provided by the PyLaTeX library.
     auto_examples/index.rst
 
 .. toctree::
-    :caption: API REFERENCE AND DEVELOPER GUIDE
     :maxdepth: 2
     :glob:
     :hidden:
