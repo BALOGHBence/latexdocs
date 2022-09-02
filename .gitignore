@@ -132,3 +132,5 @@ dmypy.json
 *.pdf
 
 /notebooks
+/docs/source/gen_modules
+/docs/source/auto_examples
