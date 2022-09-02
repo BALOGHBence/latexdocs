@@ -129,7 +129,7 @@ doc['Another section', 'An image'].append(img)
 
 doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
 
-from pdf2image import convert_from_path
+"""from pdf2image import convert_from_path
 import matplotlib.pyplot as plt
 
-plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])
+plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])"""

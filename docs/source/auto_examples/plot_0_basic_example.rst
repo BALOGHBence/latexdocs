@@ -23,15 +23,14 @@ Basic Example
 
 Basic Example with ``pylatex`` and ``latexdocs``
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-81
+.. GENERATED FROM PYTHON SOURCE LINES 8-78
 
 .. code-block:: python3
 
 
     import numpy as np
-
-    from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
-        Plot, Figure, Matrix, Alignat
+    from pylatex import Document, Section, Subsection, Tabular, Math, \
+        TikZ, Axis, Plot, Figure, Matrix, Alignat
     from pylatex.utils import italic
 
     image_filename = 'image.png'
@@ -59,9 +58,7 @@ Basic Example with ``pylatex`` and ``latexdocs``
                 table.add_row((4, 5, 6, 7))
 
     a = np.array([[100, 10, 20]]).T
-    M = np.matrix([[2, 3, 4],
-                    [0, 0, 1],
-                    [0, 0, 2]])
+    M = np.matrix([[2, 3, 4], [0, 0, 1], [0, 0, 2]])
 
     with doc.create(Section('Another section')):
         with doc.create(Subsection('Correct matrix equations')):
@@ -107,11 +104,11 @@ Basic Example with ``pylatex`` and ``latexdocs``
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-83
+.. GENERATED FROM PYTHON SOURCE LINES 79-80
 
 Now the same using ``latexdocs`` to have a little bit more control over when and what we do:
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-140
+.. GENERATED FROM PYTHON SOURCE LINES 82-136
 
 .. code-block:: python3
 
@@ -156,27 +153,21 @@ Now the same using ``latexdocs`` to have a little bit more control over when and
     ]
     fig.append(Plot(name='estimate', coordinates=coordinates))
     #doc['Another section']['Beautiful graphs']['figure:fig1'] = fig
-    doc['Another section']['Beautiful graphs'].append(fig)
+    doc['Another section', 'Beautiful graphs'].append(fig)
 
     img = Image(filename=image_filename, position='h!', 
                 caption='A simple structure.', width='350px')
-    doc['Another section']['An image'].append(img)
+    doc['Another section', 'An image'].append(img)
     #doc['Another section']['An image']['image:img1'] = img
-
 
     doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
 
-    from pdf2image import convert_from_path
+    """from pdf2image import convert_from_path
     import matplotlib.pyplot as plt
 
-    plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])
+    plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])"""
 
 
-
-.. image-sg:: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png
-   :alt: plot 0 basic example
-   :srcset: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png, /auto_examples/images/sphx_glr_plot_0_basic_example_001_2_0x.png 2.0x
-   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -184,16 +175,16 @@ Now the same using ``latexdocs`` to have a little bit more control over when and
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x00000273EA6B9A90>
+    "from pdf2image import convert_from_path\nimport matplotlib.pyplot as plt\n\nplt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])"
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.820 seconds)
+   **Total running time of the script:** ( 0 minutes  15.293 seconds)
 
-**Estimated memory usage:**  31 MB
+**Estimated memory usage:**  4 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_0_basic_example.py:
