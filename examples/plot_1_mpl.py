@@ -6,7 +6,7 @@ The mother of all matplotlib figures.
 
 """
 
-# The following code is a copy of the following example:
+# This code is a copy of the following example:
 # https://matplotlib.org/stable/gallery/showcase/anatomy.html
 
 import numpy as np

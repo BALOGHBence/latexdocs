@@ -5,6 +5,8 @@ Basic Example
 An example highlighting the main differences between `pylatex` and `latexdocs`.
 
 """
+# This code is a copy of the following example:
+# https://jeltef.github.io/PyLaTeX/current/examples/full.html
 
 import numpy as np
 from pylatex import Document, Section, Subsection, Tabular, Math, \
