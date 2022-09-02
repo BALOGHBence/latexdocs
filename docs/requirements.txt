@@ -11,3 +11,4 @@ plotly
 furo
 latexdocs
 pdf2image
+matplotlib
