@@ -10,24 +10,24 @@ Examples using ``latexdocs.TexBase.build``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Basic Example with pylatex and latexdocs">
+    <div class="sphx-glr-thumbcontainer" tooltip="Example with Matplotlib">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_0_basic_example_thumb.png
-    :alt: Basic Example
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_mpl_thumb.png
+    :alt: Example with Matplotlib
 
-  :ref:`sphx_glr_auto_examples_plot_0_basic_example.py`
+  :ref:`sphx_glr_auto_examples_plot_1_mpl.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Basic Example</div>
+      <div class="sphx-glr-thumbnail-title">Example with Matplotlib</div>
     </div>
 
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_plot_0_basic_example.py`
+ * :ref:`sphx_glr_auto_examples_plot_1_mpl.py`
 
 .. raw:: html
 

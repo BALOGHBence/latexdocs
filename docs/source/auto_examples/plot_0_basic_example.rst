@@ -23,17 +23,17 @@ Basic Example
 
 Basic Example with ``pylatex`` and ``latexdocs``
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-80
+.. GENERATED FROM PYTHON SOURCE LINES 8-84
 
 .. code-block:: python3
 
-
-    # sphinx_gallery_thumbnail_path = '_static/image_0.png'
 
     import numpy as np
     from pylatex import Document, Section, Subsection, Tabular, Math, \
         TikZ, Axis, Plot, Figure, Matrix, Alignat
     from pylatex.utils import italic
+    import pypdfium2 as pdfium
+    import matplotlib.pyplot as plt
 
     image_filename = 'image.png'
 
@@ -98,19 +98,34 @@ Basic Example with ``pylatex`` and ``latexdocs``
 
     doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdflatex')
 
+    pdf = pdfium.PdfDocument("basic_example_pylatex.pdf")
+    page = pdf.get_page(0)
+    pil_image = page.render_topil()
+    plt.imshow(pil_image)
 
 
 
 
+.. image-sg:: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png
+   :alt: plot 0 basic example
+   :srcset: /auto_examples/images/sphx_glr_plot_0_basic_example_001.png, /auto_examples/images/sphx_glr_plot_0_basic_example_001_2_0x.png 2.0x
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <matplotlib.image.AxesImage object at 0x000001E6D1574D90>
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 81-82
+.. GENERATED FROM PYTHON SOURCE LINES 85-86
 
 Now the same using ``latexdocs`` to have a little bit more control over when and what we do:
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-130
+.. GENERATED FROM PYTHON SOURCE LINES 88-141
 
 .. code-block:: python3
 
@@ -162,17 +177,35 @@ Now the same using ``latexdocs`` to have a little bit more control over when and
 
     doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
 
+    # Take a look at the generated file
+
+    pdf = pdfium.PdfDocument("basic_example_latexdocs.pdf")
+    page = pdf.get_page(0)
+    pil_image = page.render_topil()
+    plt.imshow(pil_image)
 
 
+.. image-sg:: /auto_examples/images/sphx_glr_plot_0_basic_example_002.png
+   :alt: plot 0 basic example
+   :srcset: /auto_examples/images/sphx_glr_plot_0_basic_example_002.png, /auto_examples/images/sphx_glr_plot_0_basic_example_002_2_0x.png 2.0x
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <matplotlib.image.AxesImage object at 0x000001E6D1B6C7C0>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.536 seconds)
+   **Total running time of the script:** ( 0 minutes  14.721 seconds)
 
-**Estimated memory usage:**  4 MB
+**Estimated memory usage:**  24 MB
 
 
 .. _sphx_glr_download_auto_examples_plot_0_basic_example.py:

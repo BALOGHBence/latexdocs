@@ -28,18 +28,18 @@ Examples Gallery
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Cookbook">
+    <div class="sphx-glr-thumbcontainer" tooltip="Example with Matplotlib">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_cookbook_thumb.png
-    :alt: Cookbook
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_1_mpl_thumb.png
+    :alt: Example with Matplotlib
 
-  :ref:`sphx_glr_auto_examples_plot_1_cookbook.py`
+  :ref:`sphx_glr_auto_examples_plot_1_mpl.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Cookbook</div>
+      <div class="sphx-glr-thumbnail-title">Example with Matplotlib</div>
     </div>
 
 
@@ -52,7 +52,7 @@ Examples Gallery
    :hidden:
 
    /auto_examples/plot_0_basic_example
-   /auto_examples/plot_1_cookbook
+   /auto_examples/plot_1_mpl
 
 
 .. only:: html

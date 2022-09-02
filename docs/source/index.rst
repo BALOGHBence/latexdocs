@@ -9,11 +9,19 @@ provided by the PyLaTeX library.
     :parser: myst_parser.sphinx_
 
 .. toctree::
-    :maxdepth: 1
+    :caption: EXAMPLES
+    :maxdepth: 2
     :glob:
     :hidden:
 
     auto_examples/index.rst
+
+.. toctree::
+    :caption: API REFERENCE AND DEVELOPER GUIDE
+    :maxdepth: 2
+    :glob:
+    :hidden:
+
     api
 
 Indices and tables

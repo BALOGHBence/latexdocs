@@ -105,7 +105,7 @@ def float_to_str_sig(value, *args, sig: int = 6, atol: float = 1e-7,
 
     Parameters
     ----------
-    value : float or a sequence of floats
+    value : float or a list of float
         A single value, or an iterable.
 
     sig : int
@@ -117,7 +117,7 @@ def float_to_str_sig(value, *args, sig: int = 6, atol: float = 1e-7,
 
     Returns
     -------
-    string or a sequence of strings
+    str or list of str
         String representation of the provided input.
 
     Example

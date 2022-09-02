@@ -10,5 +10,5 @@ networkx
 plotly
 furo
 latexdocs
-pdf2image
+pypdfium2
 matplotlib

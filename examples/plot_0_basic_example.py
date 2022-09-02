@@ -6,12 +6,12 @@ Basic Example with ``pylatex`` and ``latexdocs``
 
 """
 
-# sphinx_gallery_thumbnail_path = '_static/image_0.png'
-
 import numpy as np
 from pylatex import Document, Section, Subsection, Tabular, Math, \
     TikZ, Axis, Plot, Figure, Matrix, Alignat
 from pylatex.utils import italic
+import pypdfium2 as pdfium
+import matplotlib.pyplot as plt
 
 image_filename = 'image.png'
 
@@ -76,6 +76,10 @@ with doc.create(Section('Another section')):
 
 doc.generate_pdf('basic_example_pylatex', clean_tex=False, compiler='pdflatex')
 
+pdf = pdfium.PdfDocument("basic_example_pylatex.pdf")
+page = pdf.get_page(0)
+pil_image = page.render_topil()
+plt.imshow(pil_image)
 
 # %% [markdown]
 # Now the same using ``latexdocs`` to have a little bit more control over when and what we do:
@@ -128,3 +132,10 @@ img = Image(filename=image_filename, position='h!',
 doc['Another section', 'An image'].append(img)
 
 doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
+
+# Take a look at the generated file
+
+pdf = pdfium.PdfDocument("basic_example_latexdocs.pdf")
+page = pdf.get_page(0)
+pil_image = page.render_topil()
+plt.imshow(pil_image)
