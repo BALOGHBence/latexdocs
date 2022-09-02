@@ -133,5 +133,5 @@ dmypy.json
 /examples/*.tex
 /examples/*.pdf
 /notebooks
-/docs/source/gen_modules
-/docs/source/auto_examples
+/docs/source/gen_modules/*
+/docs/source/auto_examples/*
