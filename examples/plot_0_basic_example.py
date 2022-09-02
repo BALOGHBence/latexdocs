@@ -2,7 +2,7 @@
 Basic Example
 =============
 
-Basic Example with ``pylatex`` and ``latexdocs``
+An example highlighting the main differences between `pylatex` and `latexdocs`.
 
 """
 
