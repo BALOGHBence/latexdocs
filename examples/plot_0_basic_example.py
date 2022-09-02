@@ -6,6 +6,8 @@ Basic Example with ``pylatex`` and ``latexdocs``
 
 """
 
+# sphinx_gallery_thumbnail_path = '_static/image_0.png'
+
 import numpy as np
 from pylatex import Document, Section, Subsection, Tabular, Math, \
     TikZ, Axis, Plot, Figure, Matrix, Alignat
@@ -119,17 +121,10 @@ coordinates = [
     (5.00000, -3269.56775),
 ]
 fig.append(Plot(name='estimate', coordinates=coordinates))
-#doc['Another section']['Beautiful graphs']['figure:fig1'] = fig
 doc['Another section', 'Beautiful graphs'].append(fig)
 
 img = Image(filename=image_filename, position='h!', 
             caption='A simple structure.', width='350px')
 doc['Another section', 'An image'].append(img)
-#doc['Another section']['An image']['image:img1'] = img
 
 doc.build().generate_pdf('basic_example_latexdocs', clean_tex=True, compiler='pdflatex')
-
-"""from pdf2image import convert_from_path
-import matplotlib.pyplot as plt
-
-plt.imshow(convert_from_path('basic_example_latexdocs.pdf')[0])"""
