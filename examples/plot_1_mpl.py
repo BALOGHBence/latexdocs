@@ -17,7 +17,8 @@ from matplotlib.patches import Circle
 from matplotlib.patheffects import withStroke
 from matplotlib.ticker import AutoMinorLocator, MultipleLocator
 
-doc = Document()
+title = 'Matplotlib - Anatomy of a Figure'
+doc = Document(title=title)
 
 royal_blue = [0, 20/256, 82/256]
 
