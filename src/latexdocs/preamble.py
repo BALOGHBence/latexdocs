@@ -32,18 +32,30 @@ __default__packages__['tabularx']
 
 
 def append_packages(doc, packages=None):
-    
     if packages is None:
         packages = __default__packages__
-    
     for pkg, options in packages.items():
         pkgo = options if len(options) > 0 else None
         doc.packages.append(Package(pkg, options=pkgo))    
-
     return doc
 
 
 def append_cover(doc, title=None, author=None, date=True):
+    """
+    Appends a cover page to the document.
+    
+    Parameters
+    ----------
+    title : str, Optional
+        The title of the document. Default is None.
+
+    author : str, Optional
+        The author of the document. Default is None.
+
+    date : bool, Optional
+        If True, a date is show on the title page. Default is False.
+     
+    """
     if title is not None:
         doc.preamble.append(Command('title', title))
     if author is not None:
