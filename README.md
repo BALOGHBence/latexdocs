@@ -5,9 +5,6 @@
 
 # **latexdocs** - A document generation solution for LaTeX
 
-> **Warning**
-> This package is under active development and in an **alpha stage**. Come back later, or star the repo to make sure you don’t miss the first stable release!
-
 latexdocs is a Python library with the goal of making the generation of LaTeX documents as easy as possible. It builds on [PyLaTeX](https://github.com/JelteF/PyLaTeX), but offers a different approach to structuring your document or writing custom extensions.
 
 ## **Documentation**
@@ -42,6 +39,10 @@ The equivalent of the [example](https://jeltef.github.io/PyLaTeX/current/example
 ```python
 from latexdocs import Document, TikZFigure, Image
 from pylatex import Alignat, Matrix, Math, Tabular, Plot
+from pylatex.utils import italic
+import numpy as np
+
+image_filename = 'image.png'
 
 doc = Document(title='Basic Example', author='PyLaTeX', date=True)
 
@@ -49,6 +50,11 @@ doc['Some basic content'].append('Some regular text and some')
 doc['Some basic content'].append(italic('italic text. '))
 doc['Some basic content'].append('\nAlso some crazy characters: $&#{}')
 doc['Some basic content', 'Math that is incorrect'].append((Math(data=['2*3', '=', 9])))
+
+a = np.array([[100, 10, 20]]).T
+M = np.matrix([[2, 3, 4],
+                [0, 0, 1],
+                [0, 0, 2]])
                                                         
 content = Math(data=[Matrix(M), Matrix(a), '=', Matrix(M * a)])
 doc['Another section', 'Correct matrix equations'].append(content)
