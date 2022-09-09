@@ -56,7 +56,7 @@ class BaseTexDoc(TexBase):
         return self.root()._doc
 
     @abstractmethod
-    def init_doc(self) -> pltx.Document:
+    def init_doc(self, **kwargs) -> pltx.Document:
         """
         Override this to create a new document type.
 
@@ -201,7 +201,7 @@ class Document(BaseTexDoc):
 
     documentclass = 'article'
 
-    def init_doc(self, **kwargs) -> pltx.Document:
+    def init_doc(self, maketitle=None, **kwargs) -> pltx.Document:
         """
         Initializes the document. This covers appending packages
         and the preamble.
