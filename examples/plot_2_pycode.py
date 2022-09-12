@@ -66,7 +66,7 @@ class MyDocument(Document):
         packages['color']
         doc = append_packages(doc, packages)
         doc.preamble.append(NoEscape(listings_config))
-        doc = append_cover(doc, self._title, self._author, self._date, maketitle=False)
+        doc = append_cover(doc, self._title, self._author, self._date)
         return doc
 
 doc = MyDocument()
