@@ -30,6 +30,12 @@ class TikZFigure(BaseTexDocItem):
     """
     A class to handle TikZ figures.
     
+    Parameters
+    ----------
+    plot_options : str, Optional
+        Options to control the layout. See the examples.
+        Default is 'height=4cm, width=6cm, grid=major'.
+    
     Example
     -------
     >>> from latexdocs import Document, TikZFigure
@@ -76,7 +82,7 @@ class Text(BaseTexDocItem):
         The content.
         
     bold : bool, Optional
-        Default is None.
+        Default is False.
         
     """
     
@@ -97,14 +103,33 @@ class Text(BaseTexDocItem):
 class Image(BaseTexDocItem):
     """
     A class to embed images in your document.
+    
+    Parameters
+    ----------
+    *args : tuple, Optional
+        The first positional argument can be the full path to a file.
+        
+    position : str, Optional
+        Controls the position of the figure. Default is 'H'.
+        
+    width or w : int, Optional
+        The width of the image.
+        
+    filename : str, Optional
+        The full path of the file to read. The path must be provided
+        either with this argument, or as the first position argument. 
+        Default is None.
+
+    caption : str, Optional
+        The caption of the table.
 
     Example
     -------
     Assuming you have a file `image.png` on your local filesystem:
     
     >>> from latexdocs import Document, Image
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> img = Image(filename="image.png", position='h!', caption=None, width='350px')
+    >>> doc = Document()
+    >>> img = Image("image.png", position='h!', width='350px')
     
     """
 
@@ -127,6 +152,15 @@ class Image(BaseTexDocItem):
 
     @classmethod
     def from_plt(cls, path, *args, **kwargs):
+        """
+        Returns an instance from the currently active matplotlib figure.
+        
+        Parameters
+        ----------
+        path : str
+            The path where the file is to be stored.
+            
+        """
         import matplotlib.pyplot as plt
         plt.savefig(path)
         return Image(*args, filename=path, **kwargs)
