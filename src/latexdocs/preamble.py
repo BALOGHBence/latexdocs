@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pylatex import (NoEscape, Package, Command)
+from pylatex import (NoEscape, Package, Command, NewPage)
 from linkeddeepdict import LinkedDeepDict
 
 
@@ -56,10 +56,13 @@ def append_cover(doc, title=None, author=None, date=True):
         If True, a date is show on the title page. Default is False.
      
     """
+    
     if title is not None:
         doc.preamble.append(Command('title', title))
     if author is not None:
         doc.preamble.append(Command('author', author))
     if date:
         doc.preamble.append(Command('date', NoEscape(r'\today')))
+    else:
+        doc.preamble.append(NoEscape(r"\date{}"))
     return doc

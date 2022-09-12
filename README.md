@@ -44,7 +44,7 @@ import numpy as np
 
 image_filename = 'image.png'
 
-doc = Document(title='Basic Example', author='PyLaTeX', date=True)
+doc = Document()
 
 doc['Some basic content'].append('Some regular text and some')
 doc['Some basic content'].append(italic('italic text. '))

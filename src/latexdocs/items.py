@@ -3,7 +3,6 @@ import pylatex as pltx
 from abc import abstractmethod
 
 from .base import TexBase
-from .utils import float_to_str_sig
 
 
 class BaseTexDocItem(TexBase):
@@ -30,6 +29,12 @@ class BaseTexDocItem(TexBase):
 class TikZFigure(BaseTexDocItem):
     """
     A class to handle TikZ figures.
+    
+    Parameters
+    ----------
+    plot_options : str, Optional
+        Options to control the layout. See the examples.
+        Default is 'height=4cm, width=6cm, grid=major'.
     
     Example
     -------
@@ -77,7 +82,7 @@ class Text(BaseTexDocItem):
         The content.
         
     bold : bool, Optional
-        Default is None.
+        Default is False.
         
     """
     
@@ -95,111 +100,36 @@ class Text(BaseTexDocItem):
         return doc    
 
 
-class Table(BaseTexDocItem):
-    """
-    A class to handle tables using the `tabular` enviroment.
-    
-    Example
-    -------
-    >>> from latexdocs import Document, Table
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> labels = ['A', 'B', 'C', 'D']
-    >>> data = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
-    >>> doc['Tables'].append(Table(data=data, labels=labels))
-    
-    """
-
-    def __init__(self, *args, labels=None, data=None, table_spec=None, hline=False, **kwargs):
-        super().__init__(*args, **kwargs)
-        if table_spec is None:
-            assert labels is not None
-            table_spec = 'c'.join(['|',] * (len(labels) + 1))
-        self._table_spec = table_spec
-        self._data = data
-        self._labels = labels
-        self._hline = hline
-
-    def _append2doc_(self, doc, *args, **kwargs):
-        table = pltx.Tabular(self._table_spec)
-        table.add_hline()
-        table.add_row(self._labels)
-        table.add_hline()
-        nR, _ = self._data.shape
-        for iR in range(nR):
-            table.add_row(self._data[iR])
-            if self._hline:
-                table.add_hline()
-        table.add_hline()
-        doc.append(table)
-        return doc
-    
-
-class TableX(BaseTexDocItem):
-    """
-    A class to handle tables using the `tabularx` enviroment.
-    
-    Example
-    -------
-    >>> from latexdocs import Document, TableX
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> labels = ['A', 'B', 'C', 'D']
-    >>> data = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
-    >>> doc['Tables'].append(TableX(data=data, labels=labels, table_spec=r"X|X|X|X"))
-    
-    """
-
-    def __init__(self, *args, labels=None, data=None, table_spec=None, 
-                 hline=False, before=None, after=None, **kwargs):
-        super().__init__(*args, **kwargs)
-        if table_spec is None:
-            assert labels is not None
-            table_spec = r'X'.join(['|',] * (len(labels)+1))
-        self._table_spec = table_spec
-        self._data = data
-        self._labels = labels
-        self._hline = hline
-        self.before = before
-        self.after = after
-
-    def _append2doc_(self, doc, *args, **kwargs):
-        if self.before is None:
-            n = len(self._labels)
-            spec = r'{' + self._table_spec +  r'}'
-            before = r"\begin{}{}{}".format(r'{tabularx}', r'{\textwidth}', spec)
-        else:
-            before = self.before
-        doc.append(pltx.NewLine())
-        doc.append(pltx.NoEscape(before))
-                
-        header = r'&'.join(self._labels) + r" \\ "
-        doc.append(pltx.NoEscape(header))
-        doc.append(pltx.NoEscape(r"\hline"))
-        
-        nR, _ = self._data.shape
-        frmt = lambda x : float_to_str_sig(x, sig=4)
-        for iR in range(nR):
-            item = r'&'.join(map(frmt, self._data[iR])) + r" \\ "
-            doc.append(pltx.NoEscape(item))
-        
-        if self.after is None:
-            after = r"\end{tabularx}"
-        else:
-            after = self.after
-        doc.append(pltx.NoEscape(after))
-        return doc
-
-
 class Image(BaseTexDocItem):
     """
     A class to embed images in your document.
+    
+    Parameters
+    ----------
+    *args : tuple, Optional
+        The first positional argument can be the full path to a file.
+        
+    position : str, Optional
+        Controls the position of the figure. Default is 'H'.
+        
+    width or w : int, Optional
+        The width of the image.
+        
+    filename : str, Optional
+        The full path of the file to read. The path must be provided
+        either with this argument, or as the first position argument. 
+        Default is None.
+
+    caption : str, Optional
+        The caption of the table.
 
     Example
     -------
     Assuming you have a file `image.png` on your local filesystem:
     
     >>> from latexdocs import Document, Image
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> img = Image(filename="image.png", position='h!', caption=None, width='350px')
+    >>> doc = Document()
+    >>> img = Image("image.png", position='h!', width='350px')
     
     """
 
@@ -215,20 +145,30 @@ class Image(BaseTexDocItem):
         if isinstance(width, str):
             if width.lower() == 'full':
                 width = pltx.NoEscape(r"\textwidth")
-        self.width = 7.5 if width is None else width
-        self.position = 'H' if position is None else position
-        self.caption = caption if caption is not None else ''
-        self.filename = filename
+        self._width = 7.5 if width is None else width
+        self._position = 'H' if position is None else position
+        self._caption = caption
+        self._filename = filename
 
     @classmethod
     def from_plt(cls, path, *args, **kwargs):
+        """
+        Returns an instance from the currently active matplotlib figure.
+        
+        Parameters
+        ----------
+        path : str
+            The path where the file is to be stored.
+            
+        """
         import matplotlib.pyplot as plt
         plt.savefig(path)
         return Image(*args, filename=path, **kwargs)
     
     def _append2doc_(self, doc, *args, **kwargs):
-        with doc.create(pltx.Figure(position=self.position)) as pic:
-            pic.add_image(self.filename, width=self.width)
-            pic.add_caption(self.caption)
+        with doc.create(pltx.Figure(position=self._position)) as pic:
+            pic.add_image(self._filename, width=self._width)
+            if self._caption is not None:
+                pic.add_caption(self._caption)
         return doc
     
