@@ -12,7 +12,7 @@ import os
 
 class TestTables(unittest.TestCase):
     
-    def test_pdflatex(self):
+    def test_tables(self):
 
         doc = Document()
         
