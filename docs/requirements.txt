@@ -9,6 +9,5 @@ sphinx-rtd-theme
 networkx
 plotly
 furo
-latexdocs
 pypdfium2
 matplotlib
