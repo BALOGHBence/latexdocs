@@ -145,10 +145,10 @@ class Image(BaseTexDocItem):
         if isinstance(width, str):
             if width.lower() == 'full':
                 width = pltx.NoEscape(r"\textwidth")
-        self.width = 7.5 if width is None else width
-        self.position = 'H' if position is None else position
-        self.caption = caption if caption is not None else ''
-        self.filename = filename
+        self._width = 7.5 if width is None else width
+        self._position = 'H' if position is None else position
+        self._caption = caption
+        self._filename = filename
 
     @classmethod
     def from_plt(cls, path, *args, **kwargs):
@@ -166,8 +166,9 @@ class Image(BaseTexDocItem):
         return Image(*args, filename=path, **kwargs)
     
     def _append2doc_(self, doc, *args, **kwargs):
-        with doc.create(pltx.Figure(position=self.position)) as pic:
-            pic.add_image(self.filename, width=self.width)
-            pic.add_caption(self.caption)
+        with doc.create(pltx.Figure(position=self._position)) as pic:
+            pic.add_image(self._filename, width=self._width)
+            if self._caption is not None:
+                pic.add_caption(self._caption)
         return doc
     
