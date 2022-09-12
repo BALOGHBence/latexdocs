@@ -10,7 +10,7 @@ An example highlighting the main differences between `pylatex` and `latexdocs`.
 
 import numpy as np
 from pylatex import Document, Section, Subsection, Tabular, Math, \
-    TikZ, Axis, Plot, Figure, Matrix, Alignat
+    TikZ, Axis, Plot, Figure, Matrix, Alignat, NoEscape
 from pylatex.utils import italic
 import pypdfium2 as pdfium
 import matplotlib.pyplot as plt
@@ -90,7 +90,7 @@ plt.imshow(pil_image)
 
 from latexdocs import Document, TikZFigure, Image
 
-doc = Document(title='Document Title', author='BB', date=True)
+doc = Document()
 
 doc['Some basic content'].append('Some regular text and some')
 doc['Some basic content'].append(italic('italic text. '))

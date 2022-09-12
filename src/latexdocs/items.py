@@ -3,7 +3,6 @@ import pylatex as pltx
 from abc import abstractmethod
 
 from .base import TexBase
-from .utils import float_to_str_sig
 
 
 class BaseTexDocItem(TexBase):
@@ -93,100 +92,6 @@ class Text(BaseTexDocItem):
         for c in self.content:
             doc.append(pltx.NoEscape(c))
         return doc    
-
-
-class Table(BaseTexDocItem):
-    """
-    A class to handle tables using the `tabular` enviroment.
-    
-    Example
-    -------
-    >>> from latexdocs import Document, Table
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> labels = ['A', 'B', 'C', 'D']
-    >>> data = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
-    >>> doc['Tables'].append(Table(data=data, labels=labels))
-    
-    """
-
-    def __init__(self, *args, labels=None, data=None, table_spec=None, hline=False, **kwargs):
-        super().__init__(*args, **kwargs)
-        if table_spec is None:
-            assert labels is not None
-            table_spec = 'c'.join(['|',] * (len(labels) + 1))
-        self._table_spec = table_spec
-        self._data = data
-        self._labels = labels
-        self._hline = hline
-
-    def _append2doc_(self, doc, *args, **kwargs):
-        table = pltx.Tabular(self._table_spec)
-        table.add_hline()
-        table.add_row(self._labels)
-        table.add_hline()
-        nR, _ = self._data.shape
-        for iR in range(nR):
-            table.add_row(self._data[iR])
-            if self._hline:
-                table.add_hline()
-        table.add_hline()
-        doc.append(table)
-        return doc
-    
-
-class TableX(BaseTexDocItem):
-    """
-    A class to handle tables using the `tabularx` enviroment.
-    
-    Example
-    -------
-    >>> from latexdocs import Document, TableX
-    >>> doc = Document(title='Title', author='Author', date=True)
-    >>> labels = ['A', 'B', 'C', 'D']
-    >>> data = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
-    >>> doc['Tables'].append(TableX(data=data, labels=labels, table_spec=r"X|X|X|X"))
-    
-    """
-
-    def __init__(self, *args, labels=None, data=None, table_spec=None, 
-                 hline=False, before=None, after=None, **kwargs):
-        super().__init__(*args, **kwargs)
-        if table_spec is None:
-            assert labels is not None
-            table_spec = r'X'.join(['|',] * (len(labels)+1))
-        self._table_spec = table_spec
-        self._data = data
-        self._labels = labels
-        self._hline = hline
-        self.before = before
-        self.after = after
-
-    def _append2doc_(self, doc, *args, **kwargs):
-        if self.before is None:
-            n = len(self._labels)
-            spec = r'{' + self._table_spec +  r'}'
-            before = r"\begin{}{}{}".format(r'{tabularx}', r'{\textwidth}', spec)
-        else:
-            before = self.before
-        doc.append(pltx.NewLine())
-        doc.append(pltx.NoEscape(before))
-                
-        header = r'&'.join(self._labels) + r" \\ "
-        doc.append(pltx.NoEscape(header))
-        doc.append(pltx.NoEscape(r"\hline"))
-        
-        nR, _ = self._data.shape
-        frmt = lambda x : float_to_str_sig(x, sig=4)
-        for iR in range(nR):
-            item = r'&'.join(map(frmt, self._data[iR])) + r" \\ "
-            doc.append(pltx.NoEscape(item))
-        
-        if self.after is None:
-            after = r"\end{tabularx}"
-        else:
-            after = self.after
-        doc.append(pltx.NoEscape(after))
-        return doc
 
 
 class Image(BaseTexDocItem):

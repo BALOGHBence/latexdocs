@@ -37,6 +37,7 @@ class BaseTexDoc(TexBase):
         if geometry_options is None:
             geometry_options = _default_geometry_options_
         self._geometry_options = geometry_options
+        self._preamble = [] if isroot else None
         self._doc = doc
 
     @property
@@ -54,6 +55,14 @@ class BaseTexDoc(TexBase):
 
         """
         return self.root()._doc
+    
+    @property
+    def preamble(self) -> list:
+        """
+        Returns the underlying document instance.
+
+        """
+        return self.root()._preamble
 
     @abstractmethod
     def init_doc(self, **kwargs) -> pltx.Document:
@@ -201,7 +210,7 @@ class Document(BaseTexDoc):
 
     documentclass = 'article'
 
-    def init_doc(self, maketitle=None, **kwargs) -> pltx.Document:
+    def init_doc(self, **kwargs) -> pltx.Document:
         """
         Initializes the document. This covers appending packages
         and the preamble.
@@ -212,6 +221,8 @@ class Document(BaseTexDoc):
         kwargs['geometry_options'] = self._geometry_options
         doc = pltx.Document(**kwargs)
         doc = append_packages(doc)
+        for c in self.preamble:
+            doc.preamble.append(c)
         doc = append_cover(doc, self._title, self._author, self._date)
         return doc
 

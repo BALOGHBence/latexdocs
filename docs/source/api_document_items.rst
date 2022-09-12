@@ -12,11 +12,11 @@ Document Items
 .. autoclass:: latexdocs.items.Text
     :members:
 
-.. autoclass:: latexdocs.items.Table
+.. autoclass:: latexdocs.table.Table
     :members:
 
-.. autoclass:: latexdocs.items.TableX
-    :members:
+.. autoclass:: latexdocs.table.TableX
+    :members: __init__, add_hline, add_row, add_rows, add_empty_row
 
 .. autoclass:: latexdocs.items.Image
     :members:

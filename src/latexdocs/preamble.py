@@ -62,5 +62,7 @@ def append_cover(doc, title=None, author=None, date=True):
     if author is not None:
         doc.preamble.append(Command('author', author))
     if date:
-        doc.preamble.append(Command('date', NoEscape(r'\today')))        
+        doc.preamble.append(Command('date', NoEscape(r'\today')))
+    else:
+        doc.preamble.append(NoEscape(r"\date{}"))
     return doc
