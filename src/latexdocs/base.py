@@ -6,7 +6,6 @@ from abc import abstractmethod
 class TexBase(LinkedDeepDict):
     """
     Base class for all document items.
-    
     """
     
     def __init__(self, *args, content=None, **kwargs):
