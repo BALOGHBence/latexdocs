@@ -4,7 +4,18 @@ import pylatex as pltx
 import numpy as np
 
 from .items import BaseTexDocItem
-from .utils import float_to_str_sig
+
+
+class XTabular(pltx.Tabular):
+    """
+    A class to represent tables that may span across pages.
+
+    This uses the ``xtab`` package.
+    """
+
+    _latex_name = 'xtabular'
+
+    packages = [pltx.Package('xtab')]
 
 
 class Table(BaseTexDocItem):
@@ -84,7 +95,7 @@ class Table(BaseTexDocItem):
         self._centering = centering
         self._pos = pos
         self._label = label
-        self._table = self.__class__._tlbcls_(table_spec)
+        self._table = self._tlbcls_(table_spec)
 
     def add_hline(self, *args, **kwargs):
         """
